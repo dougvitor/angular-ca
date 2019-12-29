@@ -1,0 +1,14 @@
+<ap-search 
+    (onCustomEvent) = 'filter = $event' 
+    [value] = filter>
+</ap-search>
+
+<ap-photos 
+    [photos]="photosList | filterByDescription : filter">
+</ap-photos>
+
+<ap-load-button 
+    (click)="load()" 
+    [hasMore]="hasMore"
+    *ngIf="photosList.length">
+</ap-load-button>
