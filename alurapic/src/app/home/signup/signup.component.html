@@ -2,7 +2,7 @@
 
 <form class="form mt-4" [formGroup]="signupForm">
     <div class="form-group">
-        <input  placeholder="email" class="form-control" autofocus formControlName="email">
+        <input  placeholder="e-mail" class="form-control" autofocus formControlName="email">
 
         <ap-vmessage 
             text="E-mail is required!" 
@@ -45,6 +45,11 @@
 
         <ap-vmessage 
             text="Must be lower case" 
+            *ngIf="signupForm.get('userName').errors?.lowerCase">
+        </ap-vmessage>
+
+        <ap-vmessage 
+            text="Must be start with letter" 
             *ngIf="signupForm.get('userName').errors?.pattern">
         </ap-vmessage>
 
