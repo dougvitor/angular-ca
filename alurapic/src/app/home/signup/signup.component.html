@@ -2,7 +2,7 @@
 
 <form class="form mt-4" [formGroup]="signupForm" (submit)="signup()">
     <div class="form-group">
-        <input  placeholder="e-mail" class="form-control" autofocus formControlName="email">
+        <input #emailInputDOM  placeholder="e-mail" class="form-control" autofocus formControlName="email">
 
         <ap-vmessage 
             text="E-mail is required!" 
@@ -91,5 +91,5 @@
 
     <button class="btn btn-primary btn-block" [disabled]="signupForm.invalid || signupForm.pending">Register</button>
 
-    <p>Already a user?<a [routerLink]="['']">Sign In!</a></p>
+    <p>Already a user? <a [routerLink]="['']">Sign In!</a></p>
 </form>
