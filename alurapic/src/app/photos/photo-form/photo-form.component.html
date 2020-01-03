@@ -1,23 +1,33 @@
 <div class="container">
   <form class="row" [formGroup]="photoForm" (submit)="upload()">
     <div class="col-md-6 text-center">
+      <div class="form-group" *ngIf="!preview; else previewImage">
+        
+          <button type="button" (click)="fileInput.click()" class="btn btn-primary">
+            <i class="fa fa-image fa-4x align-middle"></i>
+          </button>
+    
+          <input 
+            #fileInput
+            hidden
+            type="file" 
+            accept="image/*" 
+            (change)="handleFile($event.target.files[0])"
+            formControlName="file">
+    
+          <ap-vmessage 
+              text="Please, select a photo" 
+              *ngIf="photoForm.get('file').errors?.required">
+          </ap-vmessage>
 
-      <button type="button" (click)="fileInput.click()" class="btn btn-primary">
-        <i class="fa fa-image fa-4x align-middle"></i>
-      </button>
+      </div>
 
-      <input 
-        #fileInput
-        hidden
-        type="file" 
-        accept="image/*" 
-        (change)="file = $event.target.files[0]"
-        formControlName="file">
+      <ng-template #previewImage>
+        <div class="text-center">
+          <ap-photo [url]="preview" title="Preview"></ap-photo>
+        </div>
 
-      <ap-vmessage 
-          text="Please, select a photo" 
-          *ngIf="photoForm.get('file').errors?.required">
-      </ap-vmessage>
+      </ng-template>
 
     </div>
 
