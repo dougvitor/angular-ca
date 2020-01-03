@@ -1,8 +1,12 @@
 <div class="container">
-  <form class="row" [formGroup]="photoForm">
+  <form class="row" [formGroup]="photoForm" (submit)="upload()">
     <div class="col-md-6 text-center">
 
-      <input type="file" accept="image/*" formControlName="file">
+      <input 
+        type="file" 
+        accept="image/*" 
+        (change)="file = $event.target.files[0]"
+        formControlName="file">
 
       <ap-vmessage 
           text="Please, select a photo" 
