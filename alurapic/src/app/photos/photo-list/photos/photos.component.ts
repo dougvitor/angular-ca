@@ -10,7 +10,7 @@ import { Photo } from '../../photo/photo';
 export class PhotosComponent implements OnChanges{
 
   @Input() photos: Photo[] = [];
-  rows: any[] = [];
+  rows: Photo[] = [];
   
   ngOnChanges(changes : SimpleChanges){
       if(changes.photos){
