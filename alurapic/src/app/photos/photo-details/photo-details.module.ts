@@ -6,7 +6,10 @@ import { CommonModule } from "@angular/common";
 @NgModule({
     declarations: [ PhotoDetailsComponent ],
     exports: [ PhotoDetailsComponent ],
-    imports: [ CommonModule]
+    imports: [ 
+                CommonModule,
+                PhotoModule
+            ]
 })
 export class PhotoDetailsModule{
 
