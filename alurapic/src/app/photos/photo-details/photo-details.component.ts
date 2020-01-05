@@ -1,8 +1,9 @@
 import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute, Router } from "@angular/router";
+import { Observable } from "rxjs";
+
 import { PhotoService } from "../photo/photo.service";
 import { Photo } from "../photo/photo";
-import { Observable } from "rxjs";
 import { PhotoComment } from "../photo/photo-comment";
 
 @Component({
